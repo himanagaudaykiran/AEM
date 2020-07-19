@@ -1,1 +1,2 @@
 dependencies="[granite.csrf.standalone,cq.jquery]"
+sling:resourceSuperType="wcm/foundation/components/page"
