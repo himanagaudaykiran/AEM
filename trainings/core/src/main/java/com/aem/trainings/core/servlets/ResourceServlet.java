@@ -16,7 +16,7 @@ import com.aem.trainings.core.models.TrainModel;
 @Component(service = Servlet.class, immediate = true, property = {
 	Constants.SERVICE_DESCRIPTION + "=Resource type  Servlet",
 	"sling.servlet.methods=" + HttpConstants.METHOD_GET,
-	"sling.servlet.resourceTypes=" + "/apps/trainings/components/content/listnercomp",
+	"sling.servlet.resourceTypes=" + "/apps/trainings/components/content/resourceType",
 	"sling.servlet.selectors=generator",
 	"sling.servlet.extensions=" + "html" })
 public class ResourceServlet extends SlingAllMethodsServlet  {
