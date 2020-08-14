@@ -39,6 +39,7 @@ public class DatagetServiceImpl implements DatagetService{
 			ResourceResolver resourceResolver = CustomUtils.getServiceUser(resolverFactory, "dataReadWriteUser");
 			Node node = CustomUtils.getNode(resourceResolver, "/content/trainings");
 			node.setProperty("issued_at", "today");
+			node.getSession().save();
 			String token = node.getProperty("issued_at").getString();
 			LOG.info("get node props {}", token);
 			return result;
