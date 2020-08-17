@@ -99,6 +99,11 @@
                             <artifactId>trainings.core</artifactId>
                             <target>/apps/trainings/install</target>
                         </embedded>
+						<embedded>
+                            <groupId>com.fasterxml.jackson.dataformat</groupId>
+                            <artifactId>jackson-dataformat-csv</artifactId>
+                            <target>/apps/trainings/install/10</target>
+                        </embedded>
                     </embeddeds>
                     <!--<subPackages>
                         <subPackage>
@@ -148,7 +153,11 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
         </dependency>
-
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-csv -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-csv</artifactId>
+		</dependency>
         <dependency>
             <groupId>com.day.cq.wcm</groupId>
             <artifactId>cq-wcm-taglib</artifactId>
