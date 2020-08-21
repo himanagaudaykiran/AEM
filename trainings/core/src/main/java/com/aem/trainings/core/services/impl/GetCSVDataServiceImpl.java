@@ -22,11 +22,7 @@ import com.aem.trainings.core.utils.CustomUtils;
 import com.aem.trainings.core.utils.FileUtils;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
-/**
- * Service for county population.
- *
- * @author hima naga uday kiran
- */
+
 
 @Component(service = GetCSVDataService.class, immediate = true)
 @Designate(ocd = CSVDataGetServiceConfig.class)
