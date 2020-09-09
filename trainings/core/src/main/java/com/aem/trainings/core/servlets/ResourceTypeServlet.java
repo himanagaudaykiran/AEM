@@ -1,5 +1,5 @@
 package com.aem.trainings.core.servlets;
- 
+
 import java.io.IOException;
 
 import javax.servlet.Servlet;
@@ -15,27 +15,29 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component(service = Servlet.class, immediate = true, property = {
-	Constants.SERVICE_DESCRIPTION + "=Resource type  Servlet",
-	"sling.servlet.methods=" + HttpConstants.METHOD_GET,
-	"sling.servlet.resourceTypes=" + "/services/trainings/getData",
-	"sling.servlet.extensions=" + "json" })
-public class ResourceTypeServlet extends SlingAllMethodsServlet  {
-	
+		Constants.SERVICE_DESCRIPTION + "=Resource type  Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_GET,
+		"sling.servlet.resourceTypes=" + "/services/trainings/getData", "sling.servlet.extensions=" + "json" })
+public class ResourceTypeServlet extends SlingAllMethodsServlet {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Override
 	 protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse slingResponse)
 	 throws ServletException, IOException {
-		slingResponse.setContentType("text/html");
+		slingResponse.setContentType("application/json");
 		try {
-		
-        log.info("Adaptation DONE in resource servlet");
-		} catch (Exception e) {
-            log.error("{} Exception! ", new Object[] {e.getMessage(), e});
-        }
-	} 
-	
-	
+			String[] selectors = request.getRequestPathInfo().getSelectors();
+			if(selectors.length > 0) {
+				slingResponse.getWriter().write("selectorData");
+			}
+		}catch(
+
+	Exception e)
+	{
+		log.error("{} Exception! ", new Object[] { e.getMessage(), e });
+	}
+}
+
 }

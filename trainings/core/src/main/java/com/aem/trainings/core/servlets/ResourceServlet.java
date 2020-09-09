@@ -1,8 +1,10 @@
 package com.aem.trainings.core.servlets;
  
 import java.io.IOException;
+
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
@@ -11,7 +13,6 @@ import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.aem.trainings.core.models.TrainModel;
 
 @Component(service = Servlet.class, immediate = true, property = {
 	Constants.SERVICE_DESCRIPTION + "=Resource type  Servlet",
@@ -30,9 +31,8 @@ public class ResourceServlet extends SlingAllMethodsServlet  {
 	 throws ServletException, IOException {
 		slingResponse.setContentType("text/html");
 		try {
-		TrainModel siteModel = request.adaptTo(TrainModel.class);
         log.info("Adaptation DONE in resource servlet");
-		slingResponse.getWriter().write(siteModel.getText());
+		slingResponse.getWriter().write("From model");
 		} catch (Exception e) {
             log.error("{} Exception! ", new Object[] {e.getMessage(), e});
         }
